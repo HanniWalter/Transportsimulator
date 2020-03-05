@@ -1,3 +1,5 @@
+package World;
+
 public class GameObject {
     private int x1;
     private int y1;

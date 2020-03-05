@@ -1,3 +1,5 @@
+package World;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,6 @@ public class Intersection extends GameObject {
 
     @Override
     public String toString() {
-        return "Intersection" + super.toString();
+        return "World.Intersection" + super.toString();
     }
 }

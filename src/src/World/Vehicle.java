@@ -1,5 +1,6 @@
+package World;
+
 import static java.lang.Math.min;
-import static java.lang.Math.pow;
 
 public class Vehicle extends GameObject{
 

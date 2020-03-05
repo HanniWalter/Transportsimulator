@@ -1,3 +1,5 @@
+package World;
+
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -31,7 +33,7 @@ public class Track extends GameObject{
 
     @Override
     public String toString() {
-        return "Track{" +
+        return "World.Track{" +
                 "intersection1=" + intersection1 +
                 ", intersection2=" + intersection2 +
                 '}';
