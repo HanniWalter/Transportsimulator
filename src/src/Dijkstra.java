@@ -13,6 +13,9 @@ public class Dijkstra {
         //setup
         this.start = start;
         this.end = end;
+        if (end == start){
+            return;
+        }
         for (int i = 0;i<nodes.size();i++){
             weigths.put(nodes.get(i),Double.POSITIVE_INFINITY);
             visited.put(nodes.get(i),false);
@@ -56,10 +59,16 @@ public class Dijkstra {
     }
 
     boolean isConnected(){
+        if (end == start){
+            return true;
+        }
         return (!(weigths.get(end).isInfinite()));
     }
 
     Intersection getNextIntersection(){
+        if (end == start){
+            return start;
+        }
         if(!(isConnected())) return null;
 
         Intersection intersection = end;

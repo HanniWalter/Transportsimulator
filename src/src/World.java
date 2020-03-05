@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +10,7 @@ public class World {
 	// write your code here
 
         World world = new World();
+
 
 
         world.addIntersection(100,200);
@@ -38,18 +40,12 @@ public class World {
         World.instance = world;
 
         System.out.println("begin");
-        world.update(123456789012l);
-        world.test();
-        world.update(100000000000l);
-        world.test();
-        world.update(100000000000l);
-        world.test();
-        world.update(100000000000l);
-        world.test();
-        world.update(100000000000l);
-        world.test();
-        world.update(100000000000l);
-        world.test();
+        for (int i = 0; i < 100; i++) {
+
+            world.update(10000000l);
+            System.out.println(world.dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy,hh:MM:ss")));
+            Driving.getInstance().test();
+        }
 
     }
 
@@ -63,21 +59,6 @@ public class World {
     List<Line> lines;
     List<Vehicle> vehicles;
     static World instance;
-
-    private void test(){
-        System.out.println(getDateTime());
-        for(Vehicle v: vehicles){
-
-
-            System.out.println(v.location);
-            System.out.print("X:");
-            System.out.print(v.getX());
-            System.out.print("     Y:");
-            System.out.println(v.getY());
-            System.out.print("distance since last stop:    ");
-            System.out.println(v.unitsSinceIntersection);
-        }
-    }
 
     public LocalDateTime getDateTime() {
         return dateTime;
@@ -119,10 +100,7 @@ public class World {
 
         //hier die updatecalls einrichten
 
-        for (Vehicle v:
-             vehicles) {
-            v.update(nanotime);
-        }
+        Driving.getInstance().update(nanotime);
 
         return 0;
     }
